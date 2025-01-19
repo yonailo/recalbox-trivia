@@ -18,7 +18,7 @@
       {
         "id": 4,
         "question": "Quel age aura Bkg2k en 2050 ?",
-        "answer": "47"
+        "answer": "TODO"
       },
       {
         "id": 5,
@@ -43,7 +43,7 @@
       {
         "id": 9,
         "question": "Quel age aura Digitallumberjack en 2050 ?",
-        "answer": "47"
+        "answer": "TODO"
       },
       {
         "id": 10,
@@ -62,443 +62,443 @@
       },
       {
         "id": 13,
-        "question": "",
-        "answer": ""
+        "question": "Une alimentation c'est fait pour alimenter...",
+        "answer": "un chargeur pour charger !!!"
       },
       {
         "id": 14,
-        "question": "",
-        "answer": ""
+        "question": "Comment s'appelle le community-manager de Recalbox ?",
+        "answer": "Fabrice"
       },
       {
         "id": 15,
-        "question": "",
-        "answer": ""
+        "question": "Comment s'appelle le chat du community-manager de Recalbox ?",
+        "answer": "TODO"
       },
       {
         "id": 16,
-        "question": "",
-        "answer": ""
+        "question": "Combien d'écrans utilise le community-manager de Recalbox pendant ses lives ?",
+        "answer": "3"
       },
       {
         "id": 17,
-        "question": "",
-        "answer": ""
+        "question": "Qu'est-ce que ça veut dire IRL ?",
+        "answer": "In Real Life"
       },
       {
         "id": 18,
-        "question": "",
-        "answer": ""
+        "question": "Qu'est-ce quu signifie RTFM ?",
+        "answer": "Read The Fucking Manual"
       },
       {
         "id": 19,
-        "question": "",
-        "answer": ""
+        "question": "Les BIOS c'est pas de ...",
+        "answer": "pokemon"
       },
       {
         "id": 20,
-        "question": "",
-        "answer": ""
+        "question": "Comment s'appelle l'émision Twich de Recalbox des lundis ?",
+        "answer": "Retrogaming news"
       },
       {
         "id": 21,
-        "question": "",
-        "answer": ""
+        "question": "Combien de threads de scraping peut-on avoir si on fait une donnation à ScreenScrapper ?",
+        "answer": "7"
       },
       {
         "id": 22,
-        "question": "",
-        "answer": ""
+        "question": "Comment s'appelle l'API de Recalbox qui permet de jouer avec la manette aux jeux de clavier ?",
+        "answer": "pk2"
       },
       {
         "id": 23,
-        "question": "",
-        "answer": ""
+        "question": "Qu'est-ce que veut dire l'acroymne 'MAME' ?",
+        "answer": "Multiple Arcade Machine Emulator"
       },
       {
         "id": 24,
-        "question": "",
-        "answer": ""
+        "question": "Qu'est-ce que veut dire P2K ?",
+        "answer": "Pad to Keyboard"
       },
       {
         "id": 25,
-        "question": "",
-        "answer": ""
+        "question": "Recalbox inclut un jeu nommé 'Los Amores de Brunilda'. C'est sur quel système ?",
+        "answer": "Spectrum"
       },
       {
         "id": 26,
-        "question": "",
-        "answer": ""
+        "question": "Le netplay sur DOS est-il possible ?",
+        "answer": "Non"
       },
       {
         "id": 27,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le jeu préféré de yonailo ?",
+        "answer": "Lakers vs Celtics sur DOS"
       },
       {
         "id": 28,
-        "question": "",
-        "answer": ""
+        "question": "En quelle année est sorti le RGB Dual ?",
+        "answer": "2022"
       },
       {
         "id": 29,
-        "question": "",
-        "answer": ""
+        "question": "En quelle année est sorti le Recalbox RGB Jamma ?",
+        "answer": "2024"
       },
       {
         "id": 30,
-        "question": "",
-        "answer": ""
+        "question": "Quelle est la taille minimal de la carte SD pour installer Recalbox ?",
+        "answer": "16 Go"
       },
       {
         "id": 31,
-        "question": "",
-        "answer": ""
+        "question": "En MAME, ils existe trois types de romsets. Lesquels ?",
+        "answer": "split, merged, non-merged"
       },
       {
         "id": 32,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le type de romset MAME qui permet d'avoir tous les fichiers nécessaires pour le clone sont dans le zip de celui-ci ?",
+        "answer": "non-merged"
       },
       {
         "id": 33,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le type de romset MAME dont les fichiers en communs entre parents et clones ne sont que dans le zip parent ?",
+        "answer": "split"
       },
       {
         "id": 34,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le type de romset MAME qui a les parent et les clones fusionnés dans le même zip ?",
+        "answer": "merged"
       },
       {
         "id": 35,
-        "question": "",
-        "answer": ""
+        "question": "Copies non officielles de jeux sur PCB ou cartouche, généralement vendu bien moins chers que les originaux ?",
+        "answer": "bootlegs"
       },
       {
         "id": 36,
-        "question": "",
-        "answer": ""
+        "question": "Nom d'un système d'arcade édité par SEGA en 2002.",
+        "answer": "Chihiro"
       },
       {
         "id": 37,
-        "question": "",
-        "answer": ""
+        "question": "CPS 1 ça veut dire quoi ?",
+        "answer": "Capcom Play System 1"
       },
       {
         "id": 38,
-        "question": "",
-        "answer": ""
+        "question": "Standard de connectique pour tous les jeux d'arcade afin que tous les jeux d'arcade marchent sur toutes les bornes, créé au milieu des années 80.",
+        "answer": "jamma"
       },
       {
         "id": 39,
-        "question": "",
-        "answer": ""
+        "question": "Nom d'un système d'arcade créé par SEGA sorti en 2006",
+        "answer": "Lindbergh"
       },
       {
         "id": 40,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le processeur du MSX 1 ?",
+        "answer": "Zilog Z80A"
       },
       {
         "id": 41,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le système d'exploitation de l'Apple II ?",
+        "answer": "BASIC"
       },
       {
         "id": 42,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le processeur de l'Amstrad CPC 464 ?",
+        "answer": "Zilog Z80A"
       },
       {
         "id": 43,
-        "question": "",
-        "answer": ""
+        "question": "Combien de RAM a l'Amstrad CPC 464 ?",
+        "answer": "64 Ko"
       },
       {
         "id": 44,
-        "question": "",
-        "answer": ""
+        "question": "Que deux émulateurs sont utilisé sous Recalbox pour émuler le ZX Spectrum ?",
+        "answer": "libretro-fuse et libretro-fbneo"
       },
       {
         "id": 45,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le codename de Recalbox 9 ?",
+        "answer": "Pulstar"
       },
       {
         "id": 46,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le codename de Recalbox 8 ?",
+        "answer": "Electron"
       },
       {
         "id": 47,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le codename de Recalbox 7 ?",
+        "answer": "Reloaded"
       },
       {
         "id": 48,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le codename de Recalbox 6 ?",
+        "answer": "Dragonblaze"
       },
       {
         "id": 49,
-        "question": "",
-        "answer": ""
+        "question": "Combien de couleurs a le Commodore 64 ?",
+        "answer": "16"
       },
       {
         "id": 50,
-        "question": "",
-        "answer": ""
+        "question": "En quelle année est décédé Sir Clive Marles Sinclair ?",
+        "answer": "2021"
       },
       {
         "id": 51,
-        "question": "",
-        "answer": ""
+        "question": "Combien de sprites peut gérer le système PICO-8 ?",
+        "answer": "256"
       },
       {
         "id": 52,
-        "question": "",
-        "answer": ""
+        "question": "Quel extension de fichier est utilisé par les jeux PICO-8 ?",
+        "answer": "p8"
       },
       {
         "id": 53,
-        "question": "",
-        "answer": ""
+        "question": "Sur quel système est sorti le jeu 'The Legend of Zelda : A Link to the Past' ?",
+        "answer": "SNES"
       },
       {
         "id": 54,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le nom du pistolet créé par Namco pour les consoles PlayStation ?",
+        "answer": "Guncon"
       },
       {
         "id": 55,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le password SSH de l'utilisateur root de Recalbox ?",
+        "answer": "recalboxroot"
       },
       {
         "id": 56,
-        "question": "",
-        "answer": ""
+        "question": "FBI notice : Winners don't use ...",
+        "answer": "drugs"
       },
       {
         "id": 57,
-        "question": "",
-        "answer": ""
+        "question": "FBI notice : Winners don't ... or ... Recalbox.",
+        "answer": "sell or buy"
       },
       {
         "id": 58,
-        "question": "",
-        "answer": ""
+        "question": "Peut-on réutiliser un disque dur Recalbox (SSD, NVMe, etc.) sur une autre machine ?",
+        "answer": "Non"
       },
       {
         "id": 59,
-        "question": "",
-        "answer": ""
+        "question": "Peut-on réutiliser une carte SD d'une installation de Recalbox sur Pi 4 sur un autre Pi 4 ?",
+        "answer": "Oui"
       },
       {
         "id": 60,
-        "question": "",
-        "answer": ""
+        "question": "Peut-on réutiliser une carte SD d'une installation de Recalbox sur Pi 3 sur un Pi 4 ?",
+        "answer": "Non"
       },
       {
         "id": 61,
-        "question": "",
-        "answer": ""
+        "question": "En quelle année est sorti la carte Recalbox All-in-One qui facilite la création de bornes d'arcade avec Recalbox ?",
+        "answer": "2025"
       },
       {
         "id": 62,
-        "question": "",
-        "answer": ""
+        "question": "Le ... mode permet de lancer la borne comme dans une salle d'arcade : un seul jeu est lancé, des crédits doivent être ajoutés avec le monnayeur, aucun raccourci n'est disponible.",
+        "answer": "Gamecenter"
       },
       {
         "id": 63,
-        "question": "",
-        "answer": ""
+        "question": "Le ... Mode permet de profiter de la sélection des jeux Recalbox, mais en éliminant la possibilité d'accéder aux menus du frontend ou au menu des jeux.",
+        "answer": "Kiosk"
       },
       {
         "id": 64,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le raccourci manette pour revenir sur la liste de jeux ?",
+        "answer": "HK + Start"
       },
       {
         "id": 65,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le raccourci manette pour chercher un jeu parmi tous les jeux disponibles ?",
+        "answer": "R1"
       },
       {
         "id": 66,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le raccourci manette de 'Insert coin' ?",
+        "answer": "select"
       },
       {
         "id": 67,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le raccourci manette pour rentrer dans le menu de Retroarch ?",
+        "answer": "HK + A"
       },
       {
         "id": 68,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le raccourci manette pour faire un savestate ?",
+        "answer": "HK + X"
       },
       {
         "id": 69,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le raccourci manette pour récupérer un savestate ?",
+        "answer": "HK + Y"
       },
       {
         "id": 70,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le raccourci manette pour faire un reset du jeu ?",
+        "answer": "HK + B"
       },
       {
         "id": 71,
-        "question": "",
-        "answer": ""
+        "question": "Qui a developpé ce trivia ?",
+        "answer": "yonailo"
       },
       {
         "id": 72,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le nom du fichier qui contient la configuration principal de Recalbox ?",
+        "answer": "recalbox.conf"
       },
       {
         "id": 73,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le nom du fichier qui contient les information relatives aux scraps de jeux ?",
+        "answer": "gamelist.xml"
       },
       {
         "id": 74,
-        "question": "",
-        "answer": ""
+        "question": "Combien de versions mineurs de Recalbox 9 sont apparus ?",
+        "answer": "3"
       },
       {
         "id": 75,
-        "question": "",
-        "answer": ""
+        "question": "Reicast est un émulateur capable d'émuler la ... ?",
+        "answer": "Dreamcast"
       },
       {
         "id": 76,
-        "question": "",
-        "answer": ""
+        "question": "Flycast est un émulateur capable d'émuler la ... ?",
+        "answer": "Dreamcast"
       },
       {
         "id": 77,
-        "question": "",
-        "answer": ""
+        "question": "En quelle année est sorti la Super Nintendo Entertainment System ?",
+        "answer": "1990"
       },
       {
         "id": 78,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le nom de la Super Nintendo Entertainment System au Japon ?",
+        "answer": "Super Famicom"
       },
       {
         "id": 79,
-        "question": "",
-        "answer": ""
+        "question": "Quel a été le jeu le plus vendu sur la Nintendo Entertainment System ?",
+        "answer": "Super Mario Bros"
       },
       {
         "id": 80,
-        "question": "",
-        "answer": ""
+        "question": "Quel a été le jeu le plus vendu de la Sega Saturn ?",
+        "answer": "Virtua Fighter 2"
       },
       {
         "id": 81,
-        "question": "",
-        "answer": ""
+        "question": "Quel a été le jeu le plus vendu de la PlayStation 1 ?",
+        "answer": "Gran Turismo"
       },
       {
         "id": 82,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le nom de la PC-Engine aux USA ?",
+        "answer": " TurboGrafx-16"
       },
       {
         "id": 83,
-        "question": "",
-        "answer": ""
+        "question": "Quel est le nom de la Megadrive aux USA ?",
+        "answer": "Sega Genesis"
       },
       {
         "id": 84,
-        "question": "",
-        "answer": ""
+        "question": "En quelle année est sortie la PlayStation 2 ?",
+        "answer": "2000"
       },
       {
         "id": 85,
-        "question": "",
-        "answer": ""
+        "question": "Quelle est la console la plus vendue de l'histoire du jeu vidéo ?",
+        "answer": "Playstation 2"
       },
       {
         "id": 86,
-        "question": "",
-        "answer": ""
+        "question": "La ... est une console de jeux vidéo créée par Nintendo et sortie en 1995 au Japon et aux États-Unis, se présentant sous la forme d'un visiocasque 3D.",
+        "answer": "Virtual Boy"
       },
       {
         "id": 87,
-        "question": "",
-        "answer": ""
+        "question": "Le ... est une console de jeux vidéo 8 bits développée par Smith Engineering et distribuée par General Consumer Electronics, et plus tard par MB (Milton Bradley Company) après le rachat de GCE. Il est sorti fin 1982, et a cessé d'être produit en 1984 après le krach du jeu vidéo de 1983.",
+        "answer": "Vectrex"
       },
       {
         "id": 88,
-        "question": "",
-        "answer": ""
+        "question": "Le CD-i, sigle de ..., est une console de jeux vidéo et lecteur multimédia conçu par Philips",
+        "answer": "Compact Disc Interactif"
       },
       {
         "id": 89,
-        "question": "",
-        "answer": ""
+        "question": "Dolphin est un émulateur pour deux récentes consoles de jeu de Nintendo, lesquelles",
+        "answer": "Gamecube et wii"
       },
       {
         "id": 90,
-        "question": "",
-        "answer": ""
+        "question": "Comment s'appelle l'émulateur de la Wii",
+        "answer": "Dolphin"
       },
       {
         "id": 91,
-        "question": "",
-        "answer": ""
+        "question": "Comment s'appelle l'émulateur de la Gamecube ?",
+        "answer": "Dolphin"
       },
       {
         "id": 92,
-        "question": "",
-        "answer": ""
+        "question": "Recalbox inclut un systéme qui lui permet de faire office de Media-Center, comment s'appelle ce système ?",
+        "answer": "Kodi"
       },
       {
         "id": 93,
-        "question": "",
-        "answer": ""
+        "question": "Le système Recalbox est compilé avec ...",
+        "answer": "Buildroot"
       },
       {
         "id": 94,
-        "question": "",
-        "answer": ""
+        "question": "L'inteface graphique de Recalbox developée initialement par Aloshi s'appelle ...",
+        "answer": "EmulationStation"
       },
       {
         "id": 95,
-        "question": "",
-        "answer": ""
+        "question": "Comment appelons-nous le jeu en ligne ?",
+        "answer": "netplay"
       },
       {
         "id": 96,
-        "question": "",
-        "answer": ""
+        "question": "... est un jeu vidéo d'aventure et de plateforme gratuit sorti en 2004 sur PC, développé en 5 ans par Daisuke 'Pixel' Amaya sur son temps libre. Le gameplay se joue comme une combinaison de divers jeux NES / Famicom.",
+        "answer": "Cave Story"
       },
       {
         "id": 97,
-        "question": "",
-        "answer": ""
+        "question": "Année 2142. Éminent scientifique, Conrad B. Hart, frappé d'amnésie, se trouve au cœur de la jungle lorsqu'il reprend connaissance.. de quel jeu s'agit-il ?",
+        "answer": "Flashback"
       },
       {
         "id": 98,
-        "question": "",
-        "answer": ""
+        "question": "Libretro Craft est un clone de ... ?",
+        "answer": "Minecraft"
       },
       {
         "id": 99,
-        "question": "",
-        "answer": ""
+        "question": "Le jeu est inspiré du tennis de table en vue de dessus, et chaque joueur s'affronte en déplaçant la raquette virtuelle de haut en bas, via un bouton rotatif, de façon à garder la balle dans le terrain de jeu.",
+        "answer": "pong"
       },
       {
         "id": 100,
-        "question": "",
-        "answer": ""
+        "question": "Comment s'appelle-t-il le projet le plus connu de préservation de jeux MS-DOS ?",
+        "answer": "exodos"
       }
     ]
   }

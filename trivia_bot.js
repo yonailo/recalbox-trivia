@@ -38,10 +38,6 @@ async function startTriviaGame(channel) {
         return channel.send('❌ Une partie est déjà en cours !');
     }
 
-    if (registeredUsers.length < numPlayers) {
-        return channel.send(`❌ Il faut au moins 10 joueurs inscrits pour commencer une partie. Actuellement inscrits : ${registeredUsers.length}`);
-    }
-
     gameInProgress = true;
     scores = {}; // Réinitialiser les scores
 
@@ -122,7 +118,7 @@ client.on('messageCreate', async (message) => {
         message.reply('✅ Vous êtes maintenant inscrit pour jouer au Trivia Recalbox !');
 
         // Vérifier si assez de joueurs sont inscrits pour commencer automatiquement
-        if (registeredUsers.length === numPlayers && !gameInProgress) {
+        if (registeredUsers.length >= numPlayers && !gameInProgress) {
             message.channel.send('🎉 ' + numPlayers + ' joueurs sont inscrits ! Le Trivia va commencer automatiquement.');
             startTriviaGame(message.channel);
         }
@@ -130,7 +126,7 @@ client.on('messageCreate', async (message) => {
     }
 
     // Commande : Forcer le début d'une partie (admin uniquement)
-    if (message.content.toLowerCase() === '!triva-start' &&  message.member.permissions.has('ADMINISTRATOR')) {
+    if (message.content.toLowerCase() === '!trivia-start' &&  message.member.permissions.has('ADMINISTRATOR')) {
         startTriviaGame(message.channel);
     }
 });

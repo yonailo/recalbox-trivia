@@ -1,0 +1,25 @@
+{
+  "name": "recalbox-trivia",
+  "version": "1.0.0",
+  "description": "Le utilisateurs qui souhaient jouer doivent s'inscrire avec ``rbt-join <nickname>``.",
+  "main": "trivia_bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yonailo/recalbox-trivia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yonailo/recalbox-trivia/issues"
+  },
+  "homepage": "https://github.com/yonailo/recalbox-trivia#readme",
+  "dependencies": {
+    "discord.js": "^14.17.3",
+    "dotenv": "^16.4.7",
+    "fs": "^0.0.1-security"
+  }
+}

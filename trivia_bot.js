@@ -32,6 +32,18 @@ function pause(duration) {
     return new Promise((resolve) => setTimeout(resolve, duration * 1000));
 }
 
+// Function to stop the trivia game
+function stopTriviaGame(channel) {
+    if (!gameInProgress) {
+        channel.send('❌ Aucun jeu en cours à arrêter.');
+        return;
+    }
+
+    reset_game();
+    channel.send('🛑 Le jeu de Trivia a été arrêté.');
+}
+
+
 // Fonction pour démarrer une partie de Trivia
 async function startTriviaGame(channel) {
     if (gameInProgress) {
@@ -49,6 +61,11 @@ async function startTriviaGame(channel) {
     channel.send('🎉 Le Trivia commence maintenant ! ' + numQuestions + ' questions vont être posées. Préparez-vous !');
 
     for (let i = 0; i < numQuestions; i++) {
+        // Check if the game should continue
+        if (!gameInProgress) {
+            break;
+        }
+
         const question = getRandomQuestion();
         await channel.send(`**Question ${i + 1} :** ${question.question}\n`);
 
@@ -56,7 +73,7 @@ async function startTriviaGame(channel) {
             return registeredUsers.includes(response.author.id);
         };
 
-        const collector = channel.createMessageCollector({ filter, time: timeoutReponse }); // X secondes pour répondre
+        const collector = channel.createMessageCollector({ filter, time: timeoutReponse * 1000}); // X secondes pour répondre
 
         let questionAnswered = false;
 
@@ -79,22 +96,24 @@ async function startTriviaGame(channel) {
         await pause(timeoutReponse + 5); // Y secondes (X pour répondre + 5 pour la pause)
     }
 
-    // Déterminer le vainqueur
-    const winnerId = Object.keys(scores).reduce((winner, userId) => {
-        return scores[userId] > (scores[winner] || 0) ? userId : winner;
-    }, null);
+    if(gameInProgress) {
+        // Déterminer le vainqueur
+        const winnerId = Object.keys(scores).reduce((winner, userId) => {
+            return scores[userId] > (scores[winner] || 0) ? userId : winner;
+        }, null);
 
-    const winnerScore = scores[winnerId];
-    const winnerTag = (await channel.guild.members.fetch(winnerId)).user.tag;
+        const winnerScore = scores[winnerId];
+        const winnerTag = (await channel.guild.members.fetch(winnerId)).user.tag;
 
-    channel.send('🏆 Le Trivia est terminé !');
-    channel.send(`🎉 Le vainqueur est **${winnerTag}** avec **${winnerScore} points** !`);
+        channel.send('🏆 Le Trivia est terminé !');
+        channel.send(`🎉 Le vainqueur est **${winnerTag}** avec **${winnerScore} points** !`);
 
-    // Réinitialiser les variables de jeu
-    reset_game();
+        // Réinitialiser les variables de jeu
+        reset_game();
 
-    // Anoncer que le prochain match peut commencer.
-    channel.send('📝 Les inscriptions sont à nouveau ouvertes ! Tapez `!trivia-join` pour rejoindre la prochaine partie.');
+        // Anoncer que le prochain match peut commencer.
+        channel.send('📝 Les inscriptions sont à nouveau ouvertes ! Tapez `!trivia-join` pour rejoindre la prochaine partie.');
+    }
 }
 
 // Créer une instance du client Discord
@@ -105,7 +124,7 @@ client.once(Events.ClientReady, readyClient => {
 	console.log(`Connecté en tant que ${readyClient.user.tag}`);
 });
 
-// Événement : Quand un message est envoyé
+// Événement : Quand un message est envoyé sur le canal
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
 
@@ -128,6 +147,11 @@ client.on('messageCreate', async (message) => {
     // Commande : Forcer le début d'une partie (admin uniquement)
     if (message.content.toLowerCase() === '!trivia-start' &&  message.member.permissions.has('ADMINISTRATOR')) {
         startTriviaGame(message.channel);
+    }
+
+    // Commande : Arrêter le jeu (admin uniquement)
+    if (message.content.toLowerCase() === '!trivia-stop' && message.member.permissions.has('ADMINISTRATOR')) {
+        stopTriviaGame(message.channel);
     }
 });
 

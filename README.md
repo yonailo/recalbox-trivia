@@ -10,6 +10,6 @@ Il faut un minimum de 10 joueurs pour démarrer une partie, quand on arrive à 1
 
 * Une partie est composé de 20 questions. Chaque réponse apporte 1 point, celui qui a le plus de points à la fin est déclaré vainqueur.
 
-Le système réponse sur un fichier ``ddbb_fr.json``  qui contiennent une liste de questions - réponses.
+Le bot utilise un fichier ``ddbb_fr.json``  qui contient une liste de questions - réponses.
 
 Si vous voulez ajouter votre question, merci de créer un issue sur dépôt.

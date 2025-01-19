@@ -93,7 +93,14 @@ async function startTriviaGame(channel) {
         });
 
         // Attendre la fin de la collecte avant de passer à la prochaine question
-        await pause(timeoutReponse + 5); // Y secondes (X pour répondre + 5 pour la pause)
+        if(!questionAnswered) {
+            await new Promise((resolve) => {
+                collector.on('end', resolve);
+            });
+        }
+
+        // petite pause entre les questions
+        await pause(5);
     }
 
     if(gameInProgress) {

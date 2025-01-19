@@ -12,4 +12,4 @@ Il faut un minimum de 10 joueurs pour démarrer une partie, quand on arrive à 1
 
 Le bot utilise un fichier ``ddbb_fr.json``  qui contient une liste de questions - réponses.
 
-Si vous voulez ajouter votre question, merci de créer un issue sur dépôt.
+Si vous voulez ajouter votre question, merci de créer un issue sur ce dépôt.

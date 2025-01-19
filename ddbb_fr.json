@@ -1,0 +1,65 @@
+{
+    "questions": [
+      {
+        "id": 1,
+        "question": "En quelle année est sortie la toute première version 1.0 de Recalbox ?",
+        "answer": ""
+      },
+      {
+        "id": 2,
+        "question": "Qui a developpé la fonctionalité de reprise de saves-states au lancement d'un jeu ?",
+        "answer": "guegue"
+      },
+      {
+        "id": 3,
+        "question": "Qui est appelé 'Le Documentator'",
+        "answer": "pit64"
+      },
+      {
+        "id": 4,
+        "question": "Quel age aura Bkg2k en 2050 ?",
+        "answer": ""
+      },
+      {
+        "id": 5,
+        "question": "Est-il possible d'émuler la PlayStation 1 sur un Raspbery Pi 0 avec PCSX_ReARMed",
+        "answer": "Oui"
+      },
+      {
+        "id": 6,
+        "question": "Peut-on jouer à la XBox 360 sur la version PC de Recalbox",
+        "answer": "Non"
+      },
+      {
+        "id": 7,
+        "question": "Avec quelle version de Recalbox fut possible de mettre à jour le système automatiquement ?",
+        "answer": "7"
+      },
+      {
+        "id": 8,
+        "question": "Digitallumberjack a-t-il des lunettes dans la vie réelle ?",
+        "answer": ""
+      },
+      {
+        "id": 9,
+        "question": "Quel age aura Digitallumberjack en 2050 ?",
+        "answer": ""
+      },
+      {
+        "id": 10,
+        "question": "Quel groupe de préservation se concentre uniquement sur les jeux édités sur supports cartouches ?",
+        "answer": "nointro"
+      }
+      {
+        "id": 11,
+        "question": "Quel groupe de préservation se concentre uniquement sur les jeux édités sur supports optiques ?",
+        "answer": "redump"
+      },
+      {
+        "id": 12,
+        "question": "Quel groupe de préservation a pour but de lister tout le contenu possible pour chaque console ou ordinateur ?",
+        "answer": "tosec"
+      }
+    ]
+  }
+  

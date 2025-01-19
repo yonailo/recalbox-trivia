@@ -98,7 +98,7 @@ async function startTriviaGame(channel) {
     reset_game();
 
     // Anoncer que le prochain match peut commencer.
-    channel.send('📝 Les inscriptions sont à nouveau ouvertes ! Tapez `!rbt-join` pour rejoindre la prochaine partie.');
+    channel.send('📝 Les inscriptions sont à nouveau ouvertes ! Tapez `!trivia-join` pour rejoindre la prochaine partie.');
 }
 
 // Créer une instance du client Discord
@@ -114,7 +114,7 @@ client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
 
     // Commande : Inscription
-    if (message.content.toLowerCase() === '!rbt-join') {
+    if (message.content.toLowerCase() === '!trivia-join') {
         if (registeredUsers.includes(message.author.id)) {
             return message.reply('❌ Vous êtes déjà inscrit pour cette partie !');
         }
@@ -130,7 +130,7 @@ client.on('messageCreate', async (message) => {
     }
 
     // Commande : Forcer le début d'une partie (admin uniquement)
-    if (message.content.toLowerCase() === '!rbt-start' && message.member.hasPermission('ADMINISTRATOR')) {
+    if (message.content.toLowerCase() === '!triva-start' &&  message.member.permissions.has('ADMINISTRATOR')) {
         startTriviaGame(message.channel);
     }
 });

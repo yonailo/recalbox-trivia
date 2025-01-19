@@ -12,7 +12,7 @@
       },
       {
         "id": 3,
-        "question": "Qui est appelé 'Le Documentator'",
+        "question": "Qui est appelé 'Le Documentator' ?",
         "answer": "pit64"
       },
       {
@@ -22,12 +22,12 @@
       },
       {
         "id": 5,
-        "question": "Est-il possible d'émuler la PlayStation 1 sur un Raspbery Pi 0 avec PCSX_ReARMed",
+        "question": "Est-il possible d'émuler la PlayStation 1 sur un Raspbery Pi 0 avec PCSX_ReARMed ?",
         "answer": "Oui"
       },
       {
         "id": 6,
-        "question": "Peut-on jouer à la XBox 360 sur la version PC de Recalbox",
+        "question": "Peut-on jouer à la XBox 360 sur la version PC de Recalbox ?",
         "answer": "Non"
       },
       {

@@ -78,7 +78,7 @@ async function startTriviaGame(channel) {
         let questionAnswered = false;
 
         collector.on('collect', (response) => {
-            if (response.content === question.answer) {
+            if (response.content.toLowerCase() === question.answer.toLowerCase()) {
                 scores[response.author.id] += 1;
                 response.reply(`🎉 Bonne réponse, ${response.author.username} ! Vous gagnez 1 point.`);
                 questionAnswered = true;

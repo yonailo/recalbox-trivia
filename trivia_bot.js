@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, Events, GatewayIntentBits } = require('discord.js');
 
 require('dotenv').config();
 const BOT_TOKEN = process.env.BOT_TOKEN;
@@ -105,8 +105,8 @@ async function startTriviaGame(channel) {
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
 // Événement : Quand le bot est prêt
-client.once('ready', () => {
-    console.log(`Connecté en tant que ${client.user.tag}!`);
+client.once(Events.ClientReady, readyClient => {
+	console.log(`Connecté en tant que ${readyClient.user.tag}`);
 });
 
 // Événement : Quand un message est envoyé

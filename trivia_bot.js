@@ -13,17 +13,29 @@ const timeoutReponse = 20; // 20 secondes pour répondre;
 let registeredUsers = []; // Liste temporaire des joueurs inscrits
 let scores = {}; // Suivre les scores des joueurs pendant la partie
 let gameInProgress = false; // Empêcher plusieurs parties simultanées
+let askedQuestions = []; // Suivre les questions déjà posées
 
 // Fonction pour reset les variables du jeu
 function reset_game() {
     registeredUsers = [];
     scores = {};
     gameInProgress = false;
+    askedQuestions = [];
 }
 
 // Fonction pour sélectionner une question aléatoire
 function getRandomQuestion() {
-    const randomIndex = Math.floor(Math.random() * questions.length);
+    if (askedQuestions.length === questions.length) {
+        // Toutes les questions ont été posées
+        askedQuestions = [];
+    }
+
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * questions.length);
+    } while (askedQuestions.includes(randomIndex));
+
+    askedQuestions.push(randomIndex);
     return questions[randomIndex];
 }
 

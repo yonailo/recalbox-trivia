@@ -499,6 +499,26 @@
         "id": 100,
         "question": "Comment s'appelle-t-il le projet le plus connu de préservation de jeux MS-DOS ?",
         "answer": "exodos"
+      },
+      {
+        "id": 101,
+        "question": "Quel(s) sévice(s) corporel(s) risque-t-on en cas de déplacement de share ?",
+        "answer": "fessées"
+      }
+      {
+        "id": 102,
+        "question": "A quelle fréquence Digi se rase-t-il le crane ?",
+        "answer": "jamais"
+      },
+      {
+        "id": 103,
+        "question": "Recalbox et Retropie sont dans un Bato, Retrobat tombe à l'eau, qui reste ?",
+        "answer": "Recalbox"
+      },
+      {
+        "id": 104,
+        "question": "Recalbox et Retropie sont dans un Bato, Retrobat tombe à l'eau, qui reste ?",
+        "answer": "Recalbox"
       }
     ]
   }

@@ -151,10 +151,18 @@ client.once(Events.ClientReady, readyClient => {
         console.error(`Channel with name ${CHANNEL_NAME} not found`);
     } 
     else {
-        // Send an announcement every 5 minutes
-        setInterval(() => {
-            triviaChannel.send('📝 Les inscriptions pour le Trivia sont ouvertes ! Tapez `!trivia-join` pour rejoindre la prochaine partie. Il manque minimum ' + (numPlayers - registeredUsers.length) + ' joueurs pour pouvoir commencer.');
-        }, 300000); // 5 minutes
+        // Send an announcement every 5 minutes, unless a game is in progress or if
+        // the last message was sent by the bot itself.
+        setInterval(async () => {
+            if(! gameInProgress) {
+                const messages = await triviaChannel.messages.fetch({ limit: 1 });
+                const lastMessage = messages.first();
+        
+                if (!lastMessage || lastMessage.author.id !== client.user.id) {
+                    triviaChannel.send('📝 Tapez `!trivia-join` pour rejoindre la prochaine partie. Il manque au moins ' + (numPlayers - registeredUsers.length) + ' joueurs pour pouvoir commencer.');
+                }
+            }
+        }, 300000); // toutes les 5 minutes
     }
 });
 

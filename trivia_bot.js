@@ -1,4 +1,4 @@
-const { Client, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 const fs = require('fs');
 
 require('dotenv').config();
@@ -7,15 +7,16 @@ const CHANNEL_NAME = process.env.CHANNEL_NAME;
 
 // Charger les questions depuis un fichier JSON
 const questions = JSON.parse(fs.readFileSync('./ddbb_fr.json', 'utf-8')).questions;
-const numPlayers = 10; // Nombre minimum de joueurs
 const numQuestions = 20; // Nombre de questions par partie
 const timeoutReponse = 20; // 20 secondes pour répondre;
+const waitBeforeStart = 30; // 30 secondes avant de commencer la partie quand on atteint le nombre de joueurs.
 
 // Variables pour le Trivia
-let registeredUsers = []; // Liste temporaire des joueurs inscrits
-let scores = {}; // Suivre les scores des joueurs pendant la partie
-let gameInProgress = false; // Empêcher plusieurs parties simultanées
-let askedQuestions = []; // Suivre les questions déjà posées
+let registeredUsers = []; // Liste temporaire des joueurs inscrits.
+let scores = {}; // Suivre les scores des joueurs pendant la partie.
+let gameInProgress = false; // Empêcher plusieurs parties simultanées.
+let askedQuestions = []; // Suivre les questions déjà posées.
+let numPlayers = 1; // Nombre minimum de joueurs, configurable via une slash command.
 
 // Fonction pour reset les variables du jeu
 function reset_game() {
@@ -55,6 +56,15 @@ function stopTriviaGame(channel) {
 
     reset_game();
     channel.send('🛑 Le jeu de Trivia a été arrêté.');
+}
+
+function scheduleStartIfPossible(channel) {
+    if (registeredUsers.length >= numPlayers && !gameInProgress) {
+        channel.send('🎉 ' + numPlayers + ' joueurs sont inscrits ! Le Trivia va commencer automatiquement dans quelques instants.');
+        setTimeout(() => {
+            startTriviaGame(channel);
+        }, waitBeforeStart * 1000); // X seconds
+    }
 }
 
 
@@ -139,6 +149,7 @@ async function startTriviaGame(channel) {
 
 // Créer une instance du client Discord
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+client.commands = new Collection();
 
 // Événement : Quand le bot est prêt
 client.once(Events.ClientReady, readyClient => {
@@ -182,75 +193,76 @@ client.on('messageCreate', async (message) => {
         message.reply('✅ Vous êtes maintenant inscrit pour jouer au Trivia Recalbox !');
 
         // Vérifier si assez de joueurs sont inscrits pour commencer automatiquement
-        if (registeredUsers.length >= numPlayers && !gameInProgress) {
-            message.channel.send('🎉 ' + numPlayers + ' joueurs sont inscrits ! Le Trivia va commencer automatiquement dans quelques instants.');
-            setTimeout(() => {
-                startTriviaGame(message.channel);
-            }, 30000); // 30 seconds
-        }
+        scheduleStartIfPossible(message.channel);
         return;
     }
+});
 
-    // Commande : Forcer le début d'une partie (admin uniquement)
-    if (message.content.toLowerCase() === '!trivia-start' &&  message.member.permissions.has('ADMINISTRATOR')) {
-        startTriviaGame(message.channel);
-    }
+// Événement : Quand une interaction est créée
+client.on('interactionCreate', async interaction => {
+    if (!interaction.isCommand()) return;
 
-    // Commande : Arrêter le jeu (admin uniquement)
-    if (message.content.toLowerCase() === '!trivia-stop' && message.member.permissions.has('ADMINISTRATOR')) {
-        stopTriviaGame(message.channel);
-    }
+    const { commandName } = interaction;
 
-    // Commande : Ajouter une question (admin uniquement)
-    if (message.content.toLowerCase().startsWith('!trivia-add-question') && message.member.permissions.has('ADMINISTRATOR')) {
-        const args = message.content.slice('!trivia-add-question'.length).trim().split(', ');
-        const questionArg = args.find(arg => arg.startsWith('question:'));
-        const responseArg = args.find(arg => arg.startsWith('response:'));
+    if (commandName === 'trivia-add-question') {
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) {
+            return interaction.reply('❌ Vous n\'avez pas la permission d\'utiliser cette commande.');
+        }
 
-        if (questionArg && responseArg) {
-            const questionText = questionArg.slice('question:'.length).trim();
-            const responseText = responseArg.slice('response:'.length).trim();
+        const questionText = interaction.options.getString('question');
+        const responseText = interaction.options.getString('response');
 
-            if (questionText && responseText) {
-                const newId = questions.length ? questions[questions.length - 1].id + 1 : 1;
-                questions.push({ id: newId, question: questionText, answer: responseText });
-                fs.writeFileSync('./ddbb_fr.json', JSON.stringify({ questions }, null, 2));
-                message.reply('✅ Question ajoutée avec succès avec id ' + newId + ' !');
-            } else {
-                message.reply('❌ Format incorrect. Utilisez `!trivia-add-question question:<text>, response:<text>`.');
-            }
+        const newId = questions.length ? questions[questions.length - 1].id + 1 : 1;
+        questions.push({ id: newId, question: questionText, answer: responseText });
+        fs.writeFileSync('./ddbb_fr.json', JSON.stringify({ questions }, null, 2));
+        await interaction.reply('✅ Question ajoutée avec succès avec id ' + newId + ' !');
+    } 
+    else if (commandName === 'trivia-edit-question') {
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) {
+            return interaction.reply('❌ Vous n\'avez pas la permission d\'utiliser cette commande.');
+        }
+
+        const id = interaction.options.getInteger('id');
+        const questionText = interaction.options.getString('question');
+        const responseText = interaction.options.getString('response');
+
+        const questionIndex = questions.findIndex(q => q.id === id);
+        if (questionIndex !== -1) {
+            questions[questionIndex].question = questionText;
+            questions[questionIndex].answer = responseText;
+            fs.writeFileSync('./ddbb_fr.json', JSON.stringify({ questions }, null, 2));
+            await interaction.reply('✅ Question modifiée avec succès !');
         } else {
-            message.reply('❌ Format incorrect. Utilisez `!trivia-add-question question:<text>, response:<text>`.');
+            await interaction.reply('❌ Question avec id ' + id + ' non trouvée.');
         }
+    } 
+    else if (commandName === 'trivia-start') {
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) {
+            return interaction.reply('❌ Vous n\'avez pas la permission d\'utiliser cette commande.');
+        }
+
+        startTriviaGame(interaction.channel);
+        //await interaction.reply('✅ Le jeu de Trivia a commencé !');
+    } 
+    else if (commandName === 'trivia-stop') {
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) {
+            return interaction.reply('❌ Vous n\'avez pas la permission d\'utiliser cette commande.');
+        }
+
+        stopTriviaGame(interaction.channel);
+        //await interaction.reply('✅ Le jeu de Trivia a été arrêté.');
     }
-
-    // Commande : Modifier une question (admin uniquement)
-    if (message.content.toLowerCase().startsWith('!trivia-edit-question') && message.member.permissions.has('ADMINISTRATOR')) {
-        const args = message.content.slice('!trivia-edit-question'.length).trim().split(', ');
-        const idArg = args.find(arg => arg.startsWith('id:'));
-        const questionArg = args.find(arg => arg.startsWith('question:'));
-        const responseArg = args.find(arg => arg.startsWith('response:'));
-
-        if (idArg && questionArg && responseArg) {
-            const id = parseInt(idArg.slice('id:'.length).trim(), 10);
-            const questionText = questionArg.slice('question:'.length).trim();
-            const responseText = responseArg.slice('response:'.length).trim();
-
-            const questionIndex = questions.findIndex(q => q.id === id);
-            if (questionIndex !== -1) {
-                questions[questionIndex].question = questionText;
-                questions[questionIndex].answer = responseText;
-                fs.writeFileSync('./ddbb_fr.json', JSON.stringify({ questions }, null, 2));
-                message.reply('✅ Question modifiée avec succès !');
-            } 
-            else {
-                message.reply('❌ Question avec id ' + id + ' non trouvée.');
-            }
-        } 
-        else {
-            message.reply('❌ Format incorrect. Utilisez `!trivia-edit-question id:<id>, question:<text>, response:<text>`.');
+    else if (commandName === 'trivia-num-players') {
+        if (!interaction.member.permissions.has('ADMINISTRATOR')) {
+            return interaction.reply('❌ Vous n\'avez pas la permission d\'utiliser cette commande.');
         }
+
+        numPlayers = interaction.options.getInteger('id');
+        scheduleStartIfPossible(interaction.channel);
+
+        await interaction.reply('✅ Le nombre de joueurs minimum est passé à ' + interaction.options.getInteger('id') + '.');
     }
 });
+
 
 client.login(BOT_TOKEN);

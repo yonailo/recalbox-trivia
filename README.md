@@ -14,14 +14,26 @@ Le bot utilise un fichier ``ddbb_fr.json``  qui contient une liste de questions 
 
 Si vous voulez ajouter d'autres questions, merci de créer un issue sur ce dépôt ou bien me les envoyer sur le [discord de Recalbox](https://discord.gg/NbQFbGM) à @yonailo
 
-## Commandes avec role administrator
+## Slash commands (role administrator)
 
-* !trivia-start
-* !trivia-stop
-* !trivia-add-question
-* !trivia-edit-question
+* /trivia-start
+* /trivia-stop
+* /trivia-add-question <question> <reponse>
+* /trivia-edit-question <id> <question> <reponse>
+* /trivia-num-players <id>
 
-## Variables d'environment
+## Exécution du bot sur votre serveur
 
-* BOT_TOKEN
-* CHANNEL_NAME
+D'abord il faut créer un fichier ``config.json`` et ensuite lancer la commande :
+
+```
+node ./deploy-commands.js
+```
+
+Une fois les slash-commands enregistrés sur votre serveur, il faut créer un fichier d'environment ``.env`` et lancer le bot :
+
+```
+node ./trivia_bot.js
+```
+
+Dans le repôt vous trouverez les fichiers ``.example.env`` et ``example.config.json``. Le bot fonctionne avec Node v22

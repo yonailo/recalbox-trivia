@@ -242,7 +242,7 @@ client.on('interactionCreate', async interaction => {
         }
 
         startTriviaGame(interaction.channel);
-        //await interaction.reply('✅ Le jeu de Trivia a commencé !');
+        await interaction.reply('✅ Message reçu.');
     } 
     else if (commandName === 'trivia-stop') {
         if (!interaction.member.permissions.has('ADMINISTRATOR')) {
@@ -250,7 +250,7 @@ client.on('interactionCreate', async interaction => {
         }
 
         stopTriviaGame(interaction.channel);
-        //await interaction.reply('✅ Le jeu de Trivia a été arrêté.');
+        await interaction.reply('✅ Message reçu.');
     }
     else if (commandName === 'trivia-num-players') {
         if (!interaction.member.permissions.has('ADMINISTRATOR')) {

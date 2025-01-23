@@ -10,6 +10,8 @@ const questions = JSON.parse(fs.readFileSync('./ddbb_fr.json', 'utf-8')).questio
 const numQuestions = 20; // Nombre de questions par partie
 const timeoutReponse = 20; // 20 secondes pour répondre;
 const waitBeforeStart = 30; // 30 secondes avant de commencer la partie quand on atteint le nombre de joueurs.
+const waitBetweenQuestions = 5; // 5 secondes entre chaque question.
+const waitAfterEndGame = 10; // 10 secondes après la fin de la partie avant de commencer une nouvelle.
 
 // Variables pour le Trivia
 let registeredUsers = []; // Liste temporaire des joueurs inscrits.
@@ -60,7 +62,7 @@ function stopTriviaGame(channel) {
 
 function scheduleStartIfPossible(channel) {
     if (registeredUsers.length >= numPlayers && !gameInProgress) {
-        channel.send('🎉 ' + numPlayers + ' joueurs sont inscrits ! Le Trivia va commencer automatiquement dans quelques instants.');
+        channel.send('🎉 ' + registeredUsers.length + ' joueurs sont inscrits ! Le Trivia va commencer automatiquement dans quelques instants. Vous pouvez encore vous inscrire !');
         setTimeout(() => {
             startTriviaGame(channel);
         }, waitBeforeStart * 1000); // X seconds
@@ -71,7 +73,7 @@ function scheduleStartIfPossible(channel) {
 // Fonction pour démarrer une partie de Trivia
 async function startTriviaGame(channel) {
     if (gameInProgress) {
-        return channel.send('❌ Une partie est déjà en cours !');
+        return;
     }
 
     gameInProgress = true;
@@ -104,7 +106,7 @@ async function startTriviaGame(channel) {
         collector.on('collect', (response) => {
             if (response.content.toLowerCase() === question.answer.toLowerCase()) {
                 scores[response.author.id] += 1;
-                response.reply(`🎉 Bonne réponse, ${response.author.username} ! Vous gagnez 1 point.`);
+                response.reply(`🎉 Bonne réponse, ${response.author.username} ! Vous avez ${scores[response.author.id]} points.`);
                 questionAnswered = true;
                 collector.stop(); // Stopper après une bonne réponse
             }
@@ -112,7 +114,7 @@ async function startTriviaGame(channel) {
 
         collector.on('end', (collected) => {
             if (!questionAnswered) {
-                channel.send(`⏰ Temps écoulé !`);
+                channel.send(`⏰ Temps écoulé !. La bonne réponse était : ||${question.answer}||`);
             }
         });
 
@@ -124,7 +126,7 @@ async function startTriviaGame(channel) {
         }
 
         // petite pause entre les questions
-        await pause(5);
+        await pause(waitBetweenQuestions);
     }
 
     if(gameInProgress) {
@@ -138,12 +140,21 @@ async function startTriviaGame(channel) {
 
         channel.send('🏆 Le Trivia est terminé !');
         channel.send(`🎉 Le vainqueur est **${winnerTag}** avec **${winnerScore} points** !`);
+        // Afficher tous les scores
+        channel.send('🎉 Scores finaux :')
+        Object.keys(scores).forEach((userId) => {
+            const userTag = (channel.guild.members.cache.get(userId)).user.tag;
+            channel.send(`🎉   **${userTag}** : ${scores[userId]} points`);
+        });
+        channel.send(`🎉 Merci à tous les participants !`);
+
+        await pause(waitAfterEndGame);
 
         // Réinitialiser les variables de jeu
         reset_game();
 
         // Anoncer que le prochain match peut commencer.
-        channel.send('📝 Les inscriptions sont à nouveau ouvertes ! Tapez `!trivia-join` pour rejoindre la prochaine partie.');
+        channel.send('🔄 Les inscriptions sont à nouveau ouvertes ! Tapez `!trivia-join` pour rejoindre la prochaine partie.');
     }
 }
 
